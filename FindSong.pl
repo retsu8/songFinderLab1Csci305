@@ -24,7 +24,8 @@ my @songs;
 my $sep;
 # This loops through each line of the file
 while($line = <INFILE>) {
-        $sep = index($line,"<SEP>");
+        $sep = index($line,"<SEP>",$sep+5);
+        
 	if(($line =~ m/^[({\/-:"‘+=*feat.]ext$/)== True){
 	}
 	push (@songs, $line);
