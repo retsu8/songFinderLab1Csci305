@@ -1,9 +1,9 @@
-######################################### 	
-#    CSCI 305 - Programming Lab #1		
-#										
-#  < William Paddock >			
-#  < teck.geek@hotmail.com >			
-#										
+#########################################
+#    CSCI 305 - Programming Lab #1
+#
+#  < William Paddock >
+#  < teck.geek@hotmail.com >
+#
 #########################################
 
 # Replace the string value of the following variable with your names.
@@ -21,21 +21,30 @@ if($#ARGV != 0) {
 open(INFILE, $ARGV[0]) or die "Cannot open $ARGV[0]: $!.\n";
 
 my @songs;
-my $sep;
+my $sep = 0;
+my $sep2 = 0
 # This loops through each line of the file
 while($line = <INFILE>) {
-        $sep = index($line,"<SEP>",$sep+5);
-        
+        $sep2 = index($line,"<SEP>",$sep);
+        push = (@songs, sunstr($line, $sep, $sep2)
+        while(True){
+            $sep = $sep2;
+            $sep2 = index($line,"<SEP>",$sep);
+            if($sep == $sep2)
+                last;
+            else
+                push = (@songs, sunstr($line, $sep, $sep2)
+            }
 	if(($line =~ m/^[({\/-:"‘+=*feat.]ext$/)== True){
 	}
 	push (@songs, $line);
-	
+
 }
 
 # Close the file handle
-close INFILE; 
+close INFILE;
 
-# At this point (hopefully) you will have finished processing the song 
+# At this point (hopefully) you will have finished processing the song
 # title file and have populated your data structure of bigram counts.
 print "File parsed. Bigram model built.\n\n";
 
@@ -44,7 +53,7 @@ print "File parsed. Bigram model built.\n\n";
 print "Enter a word [Enter 'q' to quit]: ";
 $input = <STDIN>;
 chomp($input);
-print "\n";	
+print "\n";
 while ($input ne "q"){
 	# Replace these lines with some useful code
 	print "Not yet implemented.  Goodbye.\n";
