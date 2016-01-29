@@ -22,23 +22,35 @@ open(INFILE, $ARGV[0]) or die "Cannot open $ARGV[0]: $!.\n";
 
 my @songs;
 my $sep = 0;
-my $sep2 = 0
+my $sep2 = 0;
+my $sep3 = 0;
+my $i = 0;
+@undesirable = ("[","(","{","\","/","-",":",""","‘","+","=","*","feat.");
 # This loops through each line of the file
 while($line = <INFILE>) {
         $sep2 = index($line,"<SEP>",$sep);
-        push = (@songs, sunstr($line, $sep, $sep2)
+        push = (@songs[i], sunstr($line, $sep, $sep2)
         while(True){
             $sep = $sep2;
             $sep2 = index($line,"<SEP>",$sep);
             if($sep == $sep2)
                 last;
+            else if(($line =~ m/^[[({\/-:"‘+=*feat.]ext$/)== True){
+                foreach $undesirable (@undesirable){
+                    $sep3 = index($line,$undesirable, $sep);
+                    if($sep3 != -1){
+                    push = (@songs[i], sunstr($line, $sep, $sep3);
+                        last;
+                    }
+                }
             else
-                push = (@songs, sunstr($line, $sep, $sep2)
+                push = (@songs[i], sunstr($line, $sep, $sep2);
             }
-	if(($line =~ m/^[({\/-:"‘+=*feat.]ext$/)== True){
-	}
-	push (@songs, $line);
-
+    	}
+        $sep =0;
+        $sep2=0;
+    }
+    i++;
 }
 
 # Close the file handle
