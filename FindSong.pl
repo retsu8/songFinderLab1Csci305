@@ -29,7 +29,7 @@ my $i = 0;
 # This loops through each line of the file
 while($line = <INFILE>) {
         $sep2 = index($line,"<SEP>",$sep);
-        push = (@songs[i], sunstr($line, $sep, $sep2)
+        push = (@songs[i], sunstr($line, $sep, $sep2-1)
         while(True){
             $sep = $sep2;
             $sep2 = index($line,"<SEP>",$sep);
@@ -39,7 +39,7 @@ while($line = <INFILE>) {
                 foreach $undesirable (@undesirable){
                     $sep3 = index($line,$undesirable, $sep);
                     if($sep3 != -1){
-                    push = (@songs[i], sunstr($line, $sep, $sep3);
+                        push = (@songs[i], sunstr($line, $sep, $sep3-1);
                         last;
                     }
                 }
