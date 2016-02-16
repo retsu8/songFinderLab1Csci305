@@ -25,7 +25,7 @@ my $sep = 0;
 my $sep2 = 0;
 my $sep3 = 0;
 my $i = 0;
-my @undesirable = ('[','(','{','\"','/','"','-',':','‘','+','=','*','feat.');
+my @undesirable = ('[','(','{','\"','/','"','-',':','‘','+','=','*','feat.','\n');
 # This loops through each line of the file
 while($line = <INFILE>) {
         $sep2 = index($line,"<SEP>",$sep);
@@ -56,7 +56,6 @@ close INFILE;
 # title file and have populated your data structure of bigram counts.
 print "File parsed. Bigram model built.\n\n";
 
-$i = 0
 # User control loop
 print "Enter a word [Enter 'q' to quit]: ";
 $input = <STDIN>;
@@ -64,10 +63,11 @@ chomp($input);
 print '\n';
 while ($input ne 'q'){
 	# Replace these lines with some useful code
-  if (index(@songs[i], $input) != -1){
-    print @songs[i];
-   }
-   i++;
+  for(@songs){
+      if (index($_, $input) != -1){
+        print "$_\n";
+     }
+  }
  }
 
 # MORE OF YOUR CODE HERE....
