@@ -60,7 +60,7 @@ close INFILE;
 # title file and have populated your data structure of bigram counts.
 print "File parsed. Bigram model built.\n\n";
 
-
+$i = 0
 # User control loop
 print "Enter a word [Enter 'q' to quit]: ";
 $input = <STDIN>;
@@ -68,8 +68,11 @@ chomp($input);
 print "\n";
 while ($input ne "q"){
 	# Replace these lines with some useful code
-	print "Not yet implemented.  Goodbye.\n";
-	$input = 'q';
-}
+  if (index($input, @songs[i]) != -1){
+    print @songs[i];
+	   $input = 'q';
+   }
+   i++;
+ }
 
 # MORE OF YOUR CODE HERE....
