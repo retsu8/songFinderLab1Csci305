@@ -68,9 +68,8 @@ chomp($input);
 print "\n";
 while ($input ne "q"){
 	# Replace these lines with some useful code
-  if (index($input, @songs[i]) != -1){
+  if (index(@songs[i], $input) != -1){
     print @songs[i];
-	   $input = 'q';
    }
    i++;
  }
