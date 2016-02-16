@@ -29,28 +29,24 @@ my @undesirable = ('[','(','{','\"','/','"','-',':','‘','+','=','*','feat.');
 # This loops through each line of the file
 while($line = <INFILE>) {
         $sep2 = index($line,"<SEP>",$sep);
-        push(@songs[i], sunstr($line, $sep, $sep2-1)
+        push(@songs[i], sunstr($line, $sep, $sep2-1));
         while($sep2 > 0){
             $sep = $sep2;
             $sep2 = index($line,"<SEP>",$sep);
-            if($sep == $sep2)
-                last;
-            else if(($line =~ m/^[[({\/-:"‘+=*feat.]ext$/)== True){
-                foreach $undesirable (@undesirable){
-                    $sep3 = index($line,$undesirable, $sep);
-                    if($sep3 != -1){
-                        push(@songs[i], sunstr($line, $sep, $sep3-1);
-                        last;
-                    }
+            if($sep == $sep2){
+                last;}
+            foreach $undesirable (@undesirable){
+                $sep3 = index($line,$undesirable, $sep);
+                if($sep3 != -1){
+                    push(@songs[i], sunstr($line, $sep, $sep3-1));
+                    last;
                 }
-            else
-                push(@songs[i], sunstr($line, $sep, $sep2);
             }
-      	}
-          $sep =0;
-          $sep2=0;
-      }
-    i++;
+            push(@songs[i], sunstr($line, $sep, $sep2));
+          }
+    $sep =0;
+    $sep2=0;
+    $i=$i+1;
 }
 
 # Close the file handle
@@ -65,8 +61,8 @@ $i = 0
 print "Enter a word [Enter 'q' to quit]: ";
 $input = <STDIN>;
 chomp($input);
-print "\n";
-while ($input ne "q"){
+print '\n';
+while ($input ne 'q'){
 	# Replace these lines with some useful code
   if (index(@songs[i], $input) != -1){
     print @songs[i];
