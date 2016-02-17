@@ -1,0 +1,82 @@
+Lab Questions
+
+Question 1
+: Which word most often follows the word “happy”?
+	
+
+Question 2
+: Which word most often follows the word “sad”?
+	
+
+Question 3
+: How many different (unique) words follow the word “computer”?
+	
+
+Question 4
+: Which word most often follows the word “computer”?
+	
+
+Question 5
+: How many times does this word follow “computer”?
+	
+
+Question 6
+: Using the starting word “happy”, what song title do you get?
+	
+
+Question 7
+: Using the starting word “sad”, what song title do you get?
+	
+
+Question 8
+: Using the starting word “hey”, what song title do you get?
+	
+
+Question 9
+: Using the starting word “little”, what song title do you get?
+	
+
+Question 10
+: Using the starting word “amore”, what song title do you get?
+	
+
+Question 11
+: Using the starting word “love”, what song title do you get?
+	
+
+Question 12
+: Even at this point, you might still see repeating phrase/word. Describe a way to (at least partially) solve this problem. Implement it.
+	
+
+Question 13
+: After Q-12, using the starting word “montana”, what song title do you get?
+	
+
+Question 14
+: After Q-12, using the starting word “bob”, what song title do you get?
+	
+
+Question 15
+: After Q-12, using the starting word “moon”, what song title do you get?
+	
+
+Question 16
+: Name something you like about Perl. Explain.
+	
+
+Question 17
+: Name something you dislike about Perl. Explain.
+	
+
+Question 18
+: Did you enjoy this lab? What aspects did you like/dislike?
+	
+
+Question 19
+: Approximately how many hours did you spend on this lab (including learning Perl)?
+	
+
+Question 20
+: Do you think you will use Perl again? For what kind of projects?
+	
+
