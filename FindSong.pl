@@ -61,10 +61,10 @@ close INFILE;
 print "File parsed. Bigram model built.\n\n";
 
 #print list to check
-/*foreach my $single (@songs){
+foreach my $single (@songs){
 	print "$single\n";
-}*/
-$word_pair_counts = sorting SortAndQuerry(@songs)
+}
+$word_pair_counts = sorting SortAndQuerry(@songs);
 # User control loop
 print "Enter a word [Enter 'q' to quit]: ";
 $input = <STDIN>;
@@ -92,4 +92,9 @@ foreach my $single (@songs){
   foreach  (sort  { $word_pair_counts{$b} <=> $word_pair_counts{$a} } keys %word_pair_counts) {
        ($word1, $word2) = split(/,/);
    }
+
+	print "Enter a word [Enter 'q' to quit]: ";
+	$input = <STDIN>;
+	chomp($input);
+
 }
