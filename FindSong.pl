@@ -61,10 +61,21 @@ close INFILE;
 print "File parsed. Bigram model built.\n\n";
 
 #print list to check
-foreach my $single (@songs){
+/*foreach my $single (@songs){
 	print "$single\n";
+}*/
+$lastword = 'File-start';
+$wordcounts{$lastword}++;
+foreach my $single (@songs){
+   $wordcounts{$songs}++;
+   $totalwords++;
+  $word_pair_counts{"$lastword,$songs"} = [$lastword, $songs];
+  $lastword = $word;
 }
-$word_pair_counts = sorting SortAndQuerry(@songs);
+$word_pairs_printed = 0;
+foreach  (sort  { $word_pair_counts{$b} <=> $word_pair_counts{$a} } keys %word_pair_counts) {
+   ($word1, $word2) = split(/,/);
+}
 # User control loop
 print "Enter a word [Enter 'q' to quit]: ";
 $input = <STDIN>;
@@ -73,28 +84,11 @@ print '\n';
 
 while ($input ne 'q'){
 	# Replace these lines with some useful code
-
+    foreach $key (keys %word_pair_counts){
+        if index($keys, $input) != -1{
+            print "The most common key pairs with your value is $key with $word_pair_counts{$keys}\n";
+        }
+    }
 
 }
 # MORE OF YOUR CODE HERE....
-package SortAndQuerry;
-sub sorting{
-    $lastword = "File_start";
-    $totalwords=0;
-    $wordcounts{$lastword}++;
-foreach my $single (@songs){
-       $wordcounts{$songs}++;
-       $totalwords++;
-      $word_pair_counts{"$lastword,$songs"} = [$lastword, $songs];
-      $lastword = $word;
-  }
-  $word_pairs_printed = 0;
-  foreach  (sort  { $word_pair_counts{$b} <=> $word_pair_counts{$a} } keys %word_pair_counts) {
-       ($word1, $word2) = split(/,/);
-   }
-
-	print "Enter a word [Enter 'q' to quit]: ";
-	$input = <STDIN>;
-	chomp($input);
-
-}
