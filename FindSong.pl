@@ -1,14 +1,14 @@
 #########################################
 #    CSCI 305 - Programming Lab #1
 #
-#  < William Paddock >
+#  < William Paddock > < Ryan Darnell >
 #  < teck.geek@hotmail.com >
 #
 #########################################
 
 # Replace the string value of the following variable with your names.
 my $name = "William Paddock";
-my $partner = null;
+my $partner = "Ryan Darnell";
 print "CSCI 305 Lab 1 submitted by $name and $partner.\n\n";
 
 # Checks for the argument, fail if none given
@@ -29,7 +29,7 @@ my @undesirable = ('[','(','{','\"','/','"','-',':','‘','+','=','*','feat.','\
 # This loops through each line of the file
 while($line = <INFILE>) {
         $sep2 = index($line,"<SEP>",$sep);
-        push(@songs[i], sunstr($line, $sep, $sep2-1));
+        push @songs, substr($line, $sep, $sep2-1);
         while($sep2 > 0){
             $sep = $sep2;
             $sep2 = index($line,"<SEP>",$sep);
@@ -71,3 +71,4 @@ while ($input ne 'q'){
  }
 
 # MORE OF YOUR CODE HERE....
+
