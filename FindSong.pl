@@ -28,7 +28,7 @@ my @split;
 my $title;
 my $i = 0;
 my @undesirable = ('\"','/','-',':','‘','\+','\=','\*');
-my @punctuation = ('\?', '\x{bf}', '!', '\x{a1}', '.', ';', '&', '$', '@', '%', '\#', '|');
+my @punctuation = ('\?', '\x{bf}', '!', '\x{a1}', '\.', ';', '&', '\$', '\@', '%', '\#', '\|');
 # This loops through each line of the file
 while($line = <INFILE>) {
         $sep2 = index($line,"<SEP>",$sep);
@@ -37,30 +37,7 @@ while($line = <INFILE>) {
 	$title =~ s/\(.*//g;
 	chomp($title);
 
-#	push @songs, $title;
-        #push @songs, substr($line, $sep, $sep2-1);
-#        while($sep2 > 0){
-#            $sep = $sep2;
-#            $sep2 = index($line,"<SEP>",$sep);
-#            if($sep == $sep2){
-#                last;}
-#            foreach $undesirable (@undesirable){
-#                $sep3 = index($line,$undesirable, $sep);
-#                if($sep3 != -1){
-#                    push(@songs[i], sunstr($line, $sep, $sep3-1));
-#                    last;
-#                }
-#            }
-#            push(@songs[i], sunstr($line, $sep, $sep2));
-#          }
-
 	foreach $undesirable (@undesirable){
-               # $sep3 = index($title,$undesirable, $sep);
-               # if($sep3 != -1){
-               #     push @songs, substr($title, $sep, $sep3);
-               #     last;
-               # }
-		#$sep3 = 0;
 		$title =~ s/$undesirable//g;
             }
 	foreach $punct (@punctuation){
