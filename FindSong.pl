@@ -72,12 +72,11 @@ chomp($input);
 print '\n';
 while ($input ne 'q'){
 	# Replace these lines with some useful code
-  for(@songs){
-      if (index($_, $input) != -1){
-        print "$_\n";
-     }
-  }
+  foreach @songs (split /\s+/){
+     
+    $word_pair_counts{"$lastword,$songs"} = [$lastword, $songs];++
+    $lastword = $word;
+    }
  }
 
 # MORE OF YOUR CODE HERE....
-
