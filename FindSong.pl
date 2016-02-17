@@ -64,13 +64,14 @@ print "File parsed. Bigram model built.\n\n";
 /*foreach my $single (@songs){
 	print "$single\n";
 }*/
+
 $lastword = 'File-start';
 $wordcounts{$lastword}++;
 foreach my $single (@songs){
    $wordcounts{$songs}++;
    $totalwords++;
-  $word_pair_counts{"$lastword,$songs"} = [$lastword, $songs];
-  $lastword = $word;
+   $word_pair_counts{"$lastword,$songs"}++ or $word_pair_split{"$lastword,$songs"} = [ $lastword, $songs ];
+  $lastword = $songs;
 }
 $word_pairs_printed = 0;
 foreach  (sort  { $word_pair_counts{$b} <=> $word_pair_counts{$a} } keys %word_pair_counts) {
