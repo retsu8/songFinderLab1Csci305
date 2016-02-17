@@ -27,7 +27,7 @@ my $sep3 = 0;
 my @split;
 my $title;
 my $i = 0;
-my @undesirable = ('\"','/','-',':','‘','\+','\=','\*');
+my @undesirable = ('\"','/','-',':','\'','\+','\=','\*');
 my @punctuation = ('\?', '\x{bf}', '!', '\x{a1}', '\.', ';', '&', '\$', '\@', '%', '\#', '\|');
 # This loops through each line of the file
 while($line = <INFILE>) {
@@ -35,6 +35,7 @@ while($line = <INFILE>) {
 	@split = split /<SEP>/, $line;
         $title = $split[3];
 	$title =~ s/\(.*//g;
+	$title =~ s/"feat\..*"//g;
 	chomp($title);
 
 	foreach $undesirable (@undesirable){
@@ -44,13 +45,12 @@ while($line = <INFILE>) {
 		$title =~ s/$punct//g;
 	}
 
+	#Push if no accent characters and push to lowercase
+	if ($title =~ /[\x30 - \x7b]/) {
+		$title = lc $title;
+		push @songs, $title;
+	}
 
-
-	push @songs, $title;
-
-    $sep =0;
-    $sep2=0;
-    $i=$i+1;
 }
 
 # Close the file handle
