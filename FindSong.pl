@@ -24,26 +24,53 @@ my @songs;
 my $sep = 0;
 my $sep2 = 0;
 my $sep3 = 0;
+my @split;
+my $title;
 my $i = 0;
-my @undesirable = ('[','(','{','\"','/','"','-',':','‘','+','=','*','feat.','\n');
+my @undesirable = ('\"','/','-',':','‘','\+','\=','\*');
+my @punctuation = ('\?', '\x{bf}', '!', '\x{a1}', '.', ';', '&', '$', '@', '%', '\#', '|');
 # This loops through each line of the file
 while($line = <INFILE>) {
         $sep2 = index($line,"<SEP>",$sep);
-        push @songs, substr($line, $sep, $sep2-1);
-        while($sep2 > 0){
-            $sep = $sep2;
-            $sep2 = index($line,"<SEP>",$sep);
-            if($sep == $sep2){
-                last;}
-            foreach $undesirable (@undesirable){
-                $sep3 = index($line,$undesirable, $sep);
-                if($sep3 != -1){
-                    push(@songs[i], sunstr($line, $sep, $sep3-1));
-                    last;
-                }
+	@split = split /<SEP>/, $line;
+        $title = $split[3];
+	$title =~ s/\(.*//g;
+	chomp($title);
+
+#	push @songs, $title;
+        #push @songs, substr($line, $sep, $sep2-1);
+#        while($sep2 > 0){
+#            $sep = $sep2;
+#            $sep2 = index($line,"<SEP>",$sep);
+#            if($sep == $sep2){
+#                last;}
+#            foreach $undesirable (@undesirable){
+#                $sep3 = index($line,$undesirable, $sep);
+#                if($sep3 != -1){
+#                    push(@songs[i], sunstr($line, $sep, $sep3-1));
+#                    last;
+#                }
+#            }
+#            push(@songs[i], sunstr($line, $sep, $sep2));
+#          }
+
+	foreach $undesirable (@undesirable){
+               # $sep3 = index($title,$undesirable, $sep);
+               # if($sep3 != -1){
+               #     push @songs, substr($title, $sep, $sep3);
+               #     last;
+               # }
+		#$sep3 = 0;
+		$title =~ s/$undesirable//g;
             }
-            push(@songs[i], sunstr($line, $sep, $sep2));
-          }
+	foreach $punct (@punctuation){
+		$title =~ s/$punct//g;
+	}
+
+
+
+	push @songs, $title;
+
     $sep =0;
     $sep2=0;
     $i=$i+1;
@@ -55,6 +82,11 @@ close INFILE;
 # At this point (hopefully) you will have finished processing the song
 # title file and have populated your data structure of bigram counts.
 print "File parsed. Bigram model built.\n\n";
+
+#print list to check
+foreach my $single (@songs){
+	print "$single\n";
+}
 
 # User control loop
 print "Enter a word [Enter 'q' to quit]: ";
